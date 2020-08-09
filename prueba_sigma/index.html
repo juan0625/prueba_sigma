@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>SIGMA</title>
+  <style type="text/css">
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: white;
+    }
+
+    .form-register {
+      width: 400px;
+      background: #FFFFFF;
+      padding: 30px;
+      margin: auto;
+      margin-top: 20px;
+      border-radius: 25px;
+      font-family: 'calibri';
+      color: black;
+      box-shadow: 7px 13px 37px #000;
+    }
+
+    .form-register h4 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .controls {
+      width: 100%;
+      background: #FFFFFF;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border: 1px solid #1f53c5;
+      font-family: 'calibri';
+      font-size: 18px;
+      color: black;
+    }
+
+    .form-register p {
+      height: 40px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 40px;
+    }
+
+    .form-register a {
+      color: black;
+      text-decoration: none;
+    }
+
+    .form-register a:hover {
+      color: black;
+      text-decoration: underline;
+    }
+
+    .form-register .botons {
+      width: 40%;
+      background: #e03b65;
+      border-radius: 20px ;
+      padding: 8px;
+      color: white;
+      font-size: 16px;
+      margin-left: 100px;
+
+    }
+    .img {
+      margin-top: 20px;
+    }
+  </style>
+
+  <script>
+    function hizoClick() {
+      var nombre = document.getElementById("nombre").value;
+      var correo = document.getElementById("correo").value;
+      var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+      if (nombre == "" || correo=="" || !regex.test(correo)) {
+        swal({
+          title:"Error",
+          text: "Debes completar los campos vacíos o verifica si tu correo esta bien escrito.",
+          icon: "warning",
+
+        }); 
+      }
+      else {
+        swal({
+          title: "Excelente!",
+          text: "Tu información ha sido recibida satisfactoriamente!",
+          icon: "success",
+        });
+      }    
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <center><img src="https://sigma-studios.s3-us-west-2.amazonaws.com/test/sigma-logo.png" class="img"></center>
+  <br>
+  <center><h1>Prueba de desarollo Sigma</h1></center>
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <img src="https://sigma-studios.s3-us-west-2.amazonaws.com/test/sigma-image.png" style="width: 65%; margin-left: 200px">
+
+    </div>
+
+    <div class="col-md-3">
+      <section class="form-register">
+
+        <form method="post">
+
+          <input list="midepartamento" class="controls" type="text" name="departamento" id="departamento" placeholder="Selecione Departamento">
+          <datalist id="midepartamento">
+            <option value="Amazonas"></option>
+            <option value="Atlántico"></option>
+            <option value="Caquetá"></option>
+            <option value="Cesar"></option>
+            <option value="Chocó"></option>
+            <option value="Cordoba"></option>
+          </datalist>
+          <input list="miciudad" class="controls" type="text" name="ciudad" id="ciudad" placeholder="Seleccione Ciudad">
+          <datalist id="miciudad">
+            <option value="Leticia"></option>
+            <option value="Baraona"></option>
+            <option value="Albania"></option>
+            <option value="Aguachica"></option>
+            <option value="Acandi"></option>
+            <option value="Ayapel"></option>
+          </datalist>
+          <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+          <input class="controls" type="email" name="correo" id="correo" placeholder="Correo" required>
+          <button id="submit" type="submit" class="botons" onclick="hizoClick()">ENVIAR</button>
+
+        </form>
+
+      </section>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
